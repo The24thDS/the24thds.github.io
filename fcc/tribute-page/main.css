@@ -124,7 +124,7 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   #tribute-info p, #tribute-info em, #tribute-info #tribute-link {
     width: 90%;
     line-height: 2;
