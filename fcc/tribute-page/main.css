@@ -7,18 +7,35 @@
   font-family: cursive;
 }
 
-header {
-  height: 25vmin;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#title {
+  height: 100vh;
+  flex-wrap: wrap;
   background-color: rgba(0, 0, 0, 0.2);
   color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: resize 2s ease;
+  animation-delay: 7s;
+  animation-fill-mode: forwards;
 }
 
-header h1 {
+#title #title-text {
+  opacity: 0;
   font-weight: 800;
   font-size: 10vmin;
+  animation: show 2s ease;
+  animation-delay: 5s;
+  animation-fill-mode: forwards;
+}
+
+#title #splash-text {
+  font-size: 5vmin;
+  opacity: 0;
+  animation: show-hide 4s ease;
+  text-align: center;
+  animation-fill-mode: forwards;
 }
 
 #img-div {
@@ -71,5 +88,39 @@ header h1 {
 #tribute-info #tribute-link:hover {
   transition: color 1s;
   color: blue;
+}
+
+@keyframes show-hide {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+    font-size: 5vmin;
+  }
+  100% {
+    font-size: 0.0001px;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes resize {
+  0% {
+    height: 100vh;
+  }
+  100% {
+    height: 20vh;
+  }
 }
 /*# sourceMappingURL=main.css.map */
