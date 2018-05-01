@@ -1,0 +1,75 @@
+*:not(ul):not(ol) {
+  padding: 0;
+  margin: 0;
+}
+
+#main {
+  font-family: cursive;
+}
+
+header {
+  height: 25vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: black;
+}
+
+header h1 {
+  font-weight: 800;
+  font-size: 10vmin;
+}
+
+#img-div {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.96);
+}
+
+#img-div figure {
+  padding: 20px 0;
+}
+
+#img-div figure #image {
+  max-width: 100%;
+  display: block;
+}
+
+#img-div figure #img-caption {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 5vmin;
+  text-align: center;
+  padding: 10px 0 0 0;
+}
+
+#tribute-info {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#tribute-info p, #tribute-info em, #tribute-info #tribute-link {
+  width: 60%;
+  margin: auto;
+  text-align: justify;
+  font-size: 4vmin;
+  line-height: 6vh;
+  text-indent: 20px;
+}
+
+#tribute-info em, #tribute-info #tribute-link {
+  display: block;
+  padding: 10px 0;
+  text-align: center;
+}
+
+#tribute-info #tribute-link {
+  color: white;
+  text-decoration: none;
+  transition: color 1s;
+}
+
+#tribute-info #tribute-link:hover {
+  transition: color 1s;
+  color: blue;
+}
+/*# sourceMappingURL=main.css.map */
