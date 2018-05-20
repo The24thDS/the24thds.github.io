@@ -73,8 +73,8 @@ section
     article
         width: 80vw
         display: grid
-        grid-template-columns: 1fr 1fr
-        grid-template-rows: 10px repeat(3, auto) 10px
+        grid-template-columns: 1fr 1.3fr
+        grid-template-rows: 10px repeat(2, auto) 100px 10px
         grid-column-gap: 80px
         margin: 0 0 50px 0
         img
@@ -83,14 +83,14 @@ section
             border-radius: 15px
         h2
             grid-row: 2
-            font-size: 40px
+            font-size: 2vw // about 40px on a 1920px window
             color: #EFEA5A
             display: flex
             justify-content: center
             align-items: center
         p
             grid-row: 3
-            font-size: 30px
+            font-size: 1.5vw // about 30px on a 1920px window
             color: white
             font-family: 'Nova Flat', cursive
             text-indent: 50px
@@ -99,14 +99,39 @@ section
             align-items: center
         button
             grid-row: 4
-            width: 50%
+            width: 40%
+            height: 80%
             border: 5px solid #EFEA5A
             border-radius: 15px
             background: transparent
             color: white
-            font-size: 55px
+            font-size: 2.86vw // about 55px on a 1920px window
             font-family: 'Nova Cut', cursive
             cursor: pointer
             justify-self: center
+            align-self: center
+    .line
+        width: 90vw
+        height: 50px
+        background: url("images/line.svg")
+        margin-bottom: 50px
+@media (max-width: 1200px)
+    section
+        article
+            grid-template-columns: 80vw
+            grid-template-rows: repeat(4, auto)
+            grid-column-gap: 0
+            grid-row-gap: 10px
+            margin: 0 0 50px 0
+            img
+                grid-row: 1
+            h2
+                font-size: 40px
+            p
+                font-size: 30px
+            button
+                height: 100%
+                font-size: 55px
+
     
     
