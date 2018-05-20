@@ -105,6 +105,7 @@ section article {
 section article img {
   grid-row: 1 / 6;
   width: 100%;
+  border-radius: 15px;
 }
 
 section article h2 {
