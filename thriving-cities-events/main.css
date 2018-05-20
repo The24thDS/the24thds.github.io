@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css?family=Nova+Cut|Nova+Flat|Nova+Oval");
+*:not(ul):not(ol) {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Nova Oval', cursive;
+  --header-height: 100px;
+  overflow-x: hidden;
+}
+
+header {
+  max-height: var(--header-height);
+  width: 100vw;
+  background-color: #e6b223;
+  display: inline-grid;
+  grid-template-columns: 20px auto auto 1fr auto auto 20px;
+  grid-gap: 5px;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  cursor: default;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+header #logo {
+  grid-column: 2;
+  height: var(--header-height);
+}
+
+header #name, header #location {
+  display: flex;
+  align-items: center;
+  font-size: 2.6vw;
+  color: white;
+}
+
+header #location {
+  grid-column: 5;
+}
+
+header #hamburger {
+  grid-column: 6;
+  height: var(--header-height);
+  cursor: pointer;
+}
+
+#hero {
+  position: relative;
+  width: 100vw;
+  height: 600px;
+  margin-top: 100px;
+  overflow: hidden;
+}
+
+section {
+  position: relative;
+  width: 100vw;
+  height: auto;
+  background-image: url("images/memphis pyramid.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 0;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+section::before {
+  background-color: rgba(4, 139, 168, 0.9);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+}
+
+section #title {
+  width: 100vw;
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+section #title h1 {
+  font-size: 80px;
+  margin: 0 20px;
+}
+
+section article {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 10px repeat(3, auto) 10px;
+  grid-column-gap: 80px;
+  margin: 0 0 50px 0;
+}
+
+section article img {
+  grid-row: 1 / 6;
+  width: 100%;
+}
+
+section article h2 {
+  grid-row: 2;
+  font-size: 40px;
+  color: #EFEA5A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section article p {
+  grid-row: 3;
+  font-size: 30px;
+  color: white;
+  font-family: 'Nova Flat', cursive;
+  text-indent: 50px;
+  text-align: justify;
+  display: flex;
+  align-items: center;
+}
+
+section article button {
+  grid-row: 4;
+  width: 50%;
+  border: 5px solid #EFEA5A;
+  border-radius: 15px;
+  background: transparent;
+  color: white;
+  font-size: 55px;
+  font-family: 'Nova Cut', cursive;
+  cursor: pointer;
+  justify-self: center;
+}
+/*# sourceMappingURL=main.css.map */
