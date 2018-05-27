@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FCC - Survey Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+    <div id="form">
+        <h1 id="title">Survey Form</h1>
+        <p id="description">This is a survey form made as an FCC challenge</p>
+        <form action="" id="survey-form">
+            <label for="name" id="name-label">*Name: </label>
+            <input type="text" id="name" placeholder="enter your name here" required>
+            <label for="email" id="email-label">*Email: </label>
+            <input type="email" id="email" placeholder="enter your email here" required>
+            <label for="number" id="number-label">*Age: </label>
+            <input type="number" id="number" min=5 max=100 placeholder="enter your age here (5-100)" required>
+            <label for="dropdown">Which option best describes your current role?</label>
+            <select name="ocupation" id="dropdown">
+                <option value="Student">Student</option>
+                <option value="Other">Other</option>
+            </select>
+        </form>
+    </div>
+    <script src="https://gitcdn.link/repo/freeCodeCamp/testable-projects-fcc/master/build/bundle.js"></script>
+</body>
+
+</html>
