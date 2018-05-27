@@ -21,9 +21,9 @@ header {
   grid-template-columns: 20px auto auto 1fr auto 50px;
   grid-gap: 5px;
   position: fixed;
-  z-index: 2;
   top: 0;
   left: 0;
+  z-index: 2;
   cursor: default;
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
@@ -47,12 +47,6 @@ header #name, header #location {
 
 header #location {
   grid-column: 5;
-}
-
-header #hamburger {
-  grid-column: 6;
-  height: var(--header-height);
-  cursor: pointer;
 }
 
 #hero {
@@ -96,9 +90,9 @@ header #hamburger {
 }
 
 #hero #splashText .stroke {
+  color: transparent;
   -webkit-text-stroke: 0.5vmin var(--main-color);
   text-fill-color: var(--main-color);
-  color: transparent;
 }
 
 section {
@@ -126,17 +120,17 @@ section::before {
   content: '';
   display: block;
   height: 100%;
+  width: 100%;
   position: absolute;
   z-index: -1;
-  width: 100%;
 }
 
 section #title {
   width: 100vw;
+  height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -233,7 +227,6 @@ section .line {
     grid-template-rows: repeat(4, auto);
     grid-column-gap: 0;
     grid-row-gap: 10px;
-    margin: 0 0 50px 0;
   }
   section article img {
     grid-row: 1;

@@ -1,173 +1,178 @@
-@import url('https://fonts.googleapis.com/css?family=Nova+Cut|Nova+Flat|Nova+Oval')
-*:not(ul):not(ol)
+@import url('https://fonts.googleapis.com/css?family=Nova+Cut|Nova+Flat|Nova+Oval') // very nice font
+*:not(ul):not(ol) // reseting browser specific rules
     padding: 0
     margin: 0
 body
     font-family: 'Nova Oval', cursive
-    --header-height: 8vh
+    --header-height: 8vh // this header height is used for the header and for determining hero height
     --main-color: #e6b223 //yellow for header
     --adjacent-color: #EFEA5A //adjacent yellow used for events title and Sign Up button
     --complementary-color: rgba(4,139,168, .9) //blue used for events background
-    overflow-x: hidden
+    overflow-x: hidden // hiding and stoping horizontal scroll if any
 header
     max-height: var(--header-height)
-    width: 100vw
+    width: 100vw //full width
     background-color: var(--main-color)
-    display: inline-grid
+    display: inline-grid // using css grid because it is easy to layout elements
     grid-template-columns: 20px auto auto 1fr auto 50px
-    grid-gap: 5px
-    position: fixed
-    z-index: 2
-    top: 0
-    left: 0
-    cursor: default
-    box-shadow: 0 0 15px rgba(0,0,0,.8)
+    // 20 and 50 px work as a margin here, all of your elements width are set to auto
+    // then the space between them is set to 1fr, everything that remains practicly after laying out all elements
+    // if the hamburger menu is uncommented in html then this should be changed to 20px auto auto 1fr auto auto 20px
+    grid-gap: 5px // some space between elements
+    position: fixed // fixing the header
+    top: 0          // on the top -
+    left: 0         // left
+    z-index: 2      // and above anything
+    cursor: default // preventing text cursor
+    box-shadow: 0 0 15px rgba(0,0,0,.8) //bottom shadow
     #logo
-        grid-column: 2
+        grid-column: 2  // the logo is placed in the column starting at line 2
+                        // I am preventing the logo to placed in the first column (the 20px column)
         height: var(--header-height)
     #name
-        display: flex
-        align-items: center
+        // this will automatically be placed in the column starting at line 3
+        display: flex       // displaying flex
+        align-items: center // for easy centering
         font-size: 2.6vw // about 50px on a 1920px window
         color: white
     #location
-        grid-column: 5
-        @extend #name
-    #hamburger
-        grid-column: 6
-        height: var(--header-height)
-        cursor: pointer
+        grid-column: 5 // the city is placed in the column starting at line 5
+                       // I am preventing the city to placed in the column used for spacing out elements (the 1fr column)
+        @extend #name  // aplying same rules as for #name
+    // uncomment this is you use the hamburger menu in html
+    // #hamburger
+    //     grid-column: 6
+    //     height: var(--header-height)
+    //     cursor: pointer
 #hero
     position: relative
-    width: 100vw
-    height: calc(100vh - var(--header-height))
-    margin-top: var(--header-height)
+    width: 100vw // full width
+    height: calc(100vh - var(--header-height)) // calculating height based on the header height
+    margin-top: var(--header-height) // and setting header height as margin in order to fill the entire window
     overflow: hidden
-    display: flex
-    justify-content: center
-    background-attachment: fixed
-    background-position: center center
-    background-size: cover
+    display: flex           // flexing for
+    justify-content: center // easy centering
+    background-attachment: fixed        // this are used
+    background-position: center center  // in case of mobile devices
+    background-size: cover              // where the hero video is switched with an image
     #heroVideo
-        object-fit: cover
+        object-fit: cover // video fills the hero size
     #splashText
-        position: absolute
-        align-self: center
+        position: absolute // positioning absolute in order to have the text on top of the video
+        align-self: center // vertical center
         color: white
         font-size: 5vw
-        cursor: default
-        user-select: none
-        opacity: 0
-        animation-name: heroTextAnimation
-        animation-iteration-count: infinite
-        .stroke
-            -webkit-text-stroke: 0.5vmin var(--main-color)
-            text-fill-color: var(--main-color)
-            color: transparent
+        cursor: default   // preventing text cursor
+        user-select: none // and selection
+        opacity: 0 // starting with opacity 0
+        animation-name: heroTextAnimation   // animation name and the infinite count are set here
+        animation-iteration-count: infinite // animation duration is set by JavaScript
+        .stroke // I use this for enhancing important word
+            color: transparent // color is set to transparent so only the stroke is visible
+            -webkit-text-stroke: 0.5vmin var(--main-color) // text stroke works pretty much on every modern browser
+            text-fill-color: var(--main-color) // this is a fallback for text stroke          
 section
     position: relative
-    width: 100vw
-    height: auto
-    background-image: url("images/memphis pyramid.jpg")
-    background-attachment: fixed
-    background-position: center center
-    background-size: cover
-    z-index: 0
+    width: 100vw // full width
+    height: auto // automatic height based on the number of events
+    background-image: url("images/memphis pyramid.jpg") // nice Memphis photo
+    background-attachment: fixed        // fixing the background gives a nice effect
+    background-position: center center  // centering the image
+    background-size: cover              // making the image cover the whole section
+    z-index: 0  // setting the section content on the default z axis
+                //it's needed in order for the blue background to work properly
     color: white
-    display: flex
-    flex-wrap: wrap
-    justify-content: center
+    display: flex           // flexing for
+    flex-wrap: wrap         // easy wraping
+    justify-content: center // and centering
     &::before
-        background-color: var(--complementary-color)
-        content: ''
-        display: block
-        height: 100%
-        position: absolute
-        z-index: -1
-        width: 100%
+        background-color: var(--complementary-color) // this is the color of the background on top of the image
+        content: '' // content is set to nothing in order to display the ::before element
+        display: block      // display as a block
+        height: 100%        // as big as
+        width: 100%         // his parent
+        position: absolute  // positioned absolute
+        z-index: -1         // and under the content
     #title
-        width: 100vw
-        display: flex
-        height: 100px
-        align-items: center
-        justify-content: center
-        margin: 50px 0
+        width: 100vw  // setting section title to full width
+        height: 100px // and 100px height
+        display: flex           // displaying as a flex
+        align-items: center     // for easy vertical
+        justify-content: center // and horizontant alignment of the events
+        margin: 50px 0 // top and bottom margin
         h1
             font-size: 80px
-            margin: 0 20px
+            margin: 0 20px // left and right margin in order to make some space between text and calendar icons
     article
-        width: 80vw
-        display: grid
-        grid-template-columns: 1fr 1.3fr
-        grid-template-rows: 10px repeat(2, auto) 100px 10px
-        grid-column-gap: 80px
-        margin: 0 0 50px 0
+        width: 80vw // 80% from the windows height
+        display: grid // displayed as grid for an easy layout
+        grid-template-columns: 1fr 1.3fr // 2 columns, a bigger one for the text
+        grid-template-rows: 10px repeat(2, auto) 100px 10px // 5 rows
+        // 10px used as top and bottom margin, auto used for the title and event description, 100px used for the button height
+        grid-column-gap: 80px // space between image/video and text content
+        margin: 0 0 50px 0 // margin between article and line
         img
-            grid-row: 1 / 6
-            width: 100%
+            grid-row: 1 / 6 // image span across all 5 rows, from line 1 to line 6
+            width: 100% // 100% of its column width
             border-radius: 15px
         h2
-            grid-row: 2
+            grid-row: 2 // title placed in the second row
             font-size: 2vw // about 40px on a 1920px window
-            color: var(--adjacent-color)
-            display: flex
-            justify-content: center
-            align-items: center
+            color: var(--adjacent-color) //adjacent yellow color
+            display: flex           // displaying flex for
+            justify-content: center // easy horizontal
+            align-items: center     // and vertical alignment
         p
-            grid-row: 3
+            grid-row: 3 // event description placed in the third row
             font-size: 1.5vw // about 30px on a 1920px window
             color: white
-            font-family: 'Nova Flat', cursive
-            text-indent: 50px
-            text-align: justify
+            font-family: 'Nova Flat', cursive // Flat used for this text
+            text-indent: 50px       // identing the paragraph
+            text-align: justify     // and nice aligning 
             display: flex
-            align-items: center
+            align-items: center     // flex used again to vertically center the text in the row
         button
-            grid-row: 4
-            width: 40%
-            height: 80%
+            grid-row: 4 // button placed in the fourth row
+            width: 40%  // set the button width to 40% of its column width
+            height: 80% // set the button height to 80% of its column height
             border: 5px solid var(--adjacent-color)
             border-radius: 15px
             background: transparent
             color: white
             font-size: 2.86vw // about 55px on a 1920px window
-            font-family: 'Nova Cut', cursive
-            cursor: pointer
-            justify-self: center
-            align-self: center
+            font-family: 'Nova Cut', cursive // Cut font used for the button
+            cursor: pointer // using a CallToAction cursor
+            justify-self: center // aligning himself
+            align-self: center   // to the center of the row
             transition: background 1s ease-in-out
-            &:hover
+            &:hover // hover effect - background color change
                 background: var(--adjacent-color)
                 transition: background 1s ease-in-out
-    .line
-        width: 90vw
+    .line // this is the line used as separation for events
+        width: 90vw // 90% of window's width
         height: 50px
         background: url("images/line.svg")
-        margin-bottom: 50px
-@media (max-width: 1200px)
+        margin-bottom: 50px // space before the nexxt event
+@media (max-width: 1200px) // this will change the event grid system from a 2 columns to a single column
     section
         article
-            grid-template-columns: 80vw
-            grid-template-rows: repeat(4, auto)
-            grid-column-gap: 0
-            grid-row-gap: 10px
-            margin: 0 0 50px 0
+            grid-template-columns: 80vw // one column
+            grid-template-rows: repeat(4, auto) // 4 automated rows
+            grid-column-gap: 0 // no gap between columns because it is only one
+            grid-row-gap: 10px // gap between rows
             img
-                grid-row: 1
+                grid-row: 1 // image placed in the first row
             h2
-                font-size: 40px
+                font-size: 40px  // smaller font size
             p
                 font-size: 30px
             button
-                height: 100%
+                height: 100% // bigger button
                 font-size: 55px
-@keyframes heroTextAnimation
+@keyframes heroTextAnimation // simple animation used for the hero text
     from
         opacity: 0
     50%
         opacity: 1
     to
         opacity: 0
-
-    
-    
