@@ -6,23 +6,27 @@
 
 body {
   font-family: 'Nova Oval', cursive;
-  --header-height: 100px;
+  --header-height: 8vh;
+  --main-color: #e6b223;
+  --adjacent-color: #EFEA5A;
+  --complementary-color: rgba(4, 139, 168, 0.9);
   overflow-x: hidden;
 }
 
 header {
   max-height: var(--header-height);
   width: 100vw;
-  background-color: #e6b223;
+  background-color: var(--main-color);
   display: inline-grid;
-  grid-template-columns: 20px auto auto 1fr auto auto 20px;
+  grid-template-columns: 20px auto auto 1fr auto 50px;
   grid-gap: 5px;
   position: fixed;
   z-index: 2;
   top: 0;
   left: 0;
   cursor: default;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
 header #logo {
@@ -31,8 +35,12 @@ header #logo {
 }
 
 header #name, header #location {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 2.6vw;
   color: white;
 }
@@ -50,9 +58,47 @@ header #hamburger {
 #hero {
   position: relative;
   width: 100vw;
-  height: 600px;
-  margin-top: 100px;
+  height: calc(100vh - var(--header-height));
+  margin-top: var(--header-height);
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+#hero #heroVideo {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#hero #splashText {
+  position: absolute;
+  -ms-flex-item-align: center;
+      align-self: center;
+  color: white;
+  font-size: 5vw;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  opacity: 0;
+  -webkit-animation-name: heroTextAnimation;
+          animation-name: heroTextAnimation;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+#hero #splashText .stroke {
+  -webkit-text-stroke: 0.5vmin var(--main-color);
+  text-fill-color: var(--main-color);
+  color: transparent;
 }
 
 section {
@@ -60,17 +106,23 @@ section {
   width: 100vw;
   height: auto;
   background-image: url("images/memphis pyramid.jpg");
-  background-size: cover;
   background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
   z-index: 0;
   color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 section::before {
-  background-color: rgba(4, 139, 168, 0.9);
+  background-color: var(--complementary-color);
   content: '';
   display: block;
   height: 100%;
@@ -81,10 +133,16 @@ section::before {
 
 section #title {
   width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 100px;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 50px 0;
 }
 
@@ -111,10 +169,16 @@ section article img {
 section article h2 {
   grid-row: 2;
   font-size: 2vw;
-  color: #EFEA5A;
+  color: var(--adjacent-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 section article p {
@@ -124,15 +188,19 @@ section article p {
   font-family: 'Nova Flat', cursive;
   text-indent: 50px;
   text-align: justify;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 section article button {
   grid-row: 4;
   width: 40%;
   height: 80%;
-  border: 5px solid #EFEA5A;
+  border: 5px solid var(--adjacent-color);
   border-radius: 15px;
   background: transparent;
   color: white;
@@ -140,7 +208,16 @@ section article button {
   font-family: 'Nova Cut', cursive;
   cursor: pointer;
   justify-self: center;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-transition: background 1s ease-in-out;
+  transition: background 1s ease-in-out;
+}
+
+section article button:hover {
+  background: var(--adjacent-color);
+  -webkit-transition: background 1s ease-in-out;
+  transition: background 1s ease-in-out;
 }
 
 section .line {
@@ -172,4 +249,27 @@ section .line {
     font-size: 55px;
   }
 }
-/*# sourceMappingURL=main.css.map */
+
+@-webkit-keyframes heroTextAnimation {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes heroTextAnimation {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

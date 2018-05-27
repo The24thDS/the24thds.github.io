@@ -9,17 +9,20 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 
-<body>
+<body onload="resolution()">
     <header>
         <img src="images/TC_Mark_Gold_RGB.png" alt="Thriving cities Logo" id="logo">
         <h2 id="name">Thriving Cities</h2>
         <h2 id="location">Memphis, TN</h2>
-        <img src="images/h menu.svg" alt="Hamburger menu" id="hamburger">
+        <!-- <img src="images/h menu.svg" alt="Hamburger menu" id="hamburger"> -->
     </header>
     <div id="hero">
-        <video onloadstart="this.volume=0" autoplay loop>
+        <video id="heroVideo" onloadstart="this.volume=0" autoplay loop>
             <source src="video.mp4" type="video/mp4">
         </video>
+        <h1 id="splashText">Welcome to
+            <span class="stroke">Memphis</span>
+        </h1>
     </div>
     <section>
         <div id="title">
@@ -30,28 +33,47 @@
         <article>
             <img src="images/memphis pyramid.jpg" alt="">
             <h2>Children's Day - June 26th</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut erat risus. 
-                Vestibulum ac ex egestas, sollicitudin felis ultrices, tristique nisl. 
-                Sed placerat ut velit sit amet gravida. Maecenas auctor a ex non dictum. 
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut erat risus. Vestibulum ac ex egestas, sollicitudin
+                felis ultrices, tristique nisl. Sed placerat ut velit sit amet gravida. Maecenas auctor a ex non dictum.
                 Integer id metus eu arcu porttitor posuere ac et ante.
             </p>
-            <button>Join Us</button>
+            <button onclick="window.open('http://eepurl.com/dwinMX')">Join Us</button>
         </article>
         <div class="line"></div>
         <article>
-                <img src="images/memphis pyramid.jpg" alt="">
-                <h2>Event name - July 26th</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut erat risus. 
-                    Vestibulum ac ex egestas, sollicitudin felis ultrices, tristique nisl. 
-                    Sed placerat ut velit sit amet gravida. Maecenas auctor a ex non dictum. 
-                    Integer id metus eu arcu porttitor posuere ac et ante. Felis ultrices, tristique nisl. 
-                    Sed placerat ut velit sit amet gravida.
-                </p>
-                <button>Join Us</button>
-            </article>
-            <div class="line"></div>
+            <img src="images/memphis pyramid.jpg" alt="">
+            <h2>Event name - July 26th</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut erat risus. Vestibulum ac ex egestas, sollicitudin
+                felis ultrices, tristique nisl. Sed placerat ut velit sit amet gravida. Maecenas auctor a ex non dictum.
+                Integer id metus eu arcu porttitor posuere ac et ante. Felis ultrices, tristique nisl. Sed placerat ut velit
+                sit amet gravida.
+            </p>
+            <button onclick="window.open('http://eepurl.com/dwinMX')">Join Us</button>
+        </article>
+        <div class="line"></div>
     </section>
-    <!-- <script src="main.js"></script> -->
+    <script>
+        const heroVideo = document.getElementById("heroVideo");
+        const resolution = () => {
+            if (window.innerWidth <= 1200) {
+                heroVideo.parentElement.style.backgroundImage = `url("images/memphis pyramid.jpg")`;
+                heroVideo.parentNode.removeChild(heroVideo);
+            }
+        };
+        const heroText = document.getElementById("splashText");
+        const texts = [
+            `a <span class="stroke">thriving</span> city`,
+            `check our <span class="stroke">events</span> below`
+        ];
+        const animationDuration = 3;
+        heroText.style.animationDuration = `${animationDuration}s`;
+        setTimeout(function () {
+            heroText.innerHTML = texts[0];
+        }, animationDuration * 1000);
+        setTimeout(function () {
+            heroText.innerHTML = texts[1];
+        }, animationDuration * 2000);
+    </script>
 </body>
 
 </html>
