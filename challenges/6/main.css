@@ -18,3 +18,29 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
+
+input[id] {
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 10px 0;
+  font-size: 30px;
+  padding: 10px;
+  outline: none;
+}
+
+input[id]#colorOutput {
+  border-color: gray;
+}
+
+h1 {
+  font-family: cursive;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.output h1 {
+  color: gray;
+}
