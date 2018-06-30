@@ -1,1 +1,2 @@
-<h1>ZtM Coding Challenge 6</h1>
+<h1><a href="https://github.com/zero-to-mastery/Coding_Challenge-6/blob/master/README.md" style="color:black;">
+  ZtM Coding Challenge 6</a></h1>
