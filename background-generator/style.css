@@ -36,6 +36,7 @@ input[type=color]{
     opacity: 0;
     cursor: pointer;
 }
+
 .colors label{
     display: inline-flex;
     width: 30px;
@@ -60,5 +61,5 @@ input[type=color]{
 }
 .options{
     font-family: cursive;
-	margin: 20px 0;
+    margin: 20px 0;
 }

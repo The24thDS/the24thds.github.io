@@ -20,7 +20,6 @@ function setGradient() {
 		color.addEventListener("input", setGradient);
 	});
 	body.style.background = "linear-gradient(to " + direction.value + ", " + createColorString() + ")";
-	body.style.background = "linear-gradient(to right, " + createColorString() + ")";
 	css.textContent = body.style.background + ";";
 }
 
