@@ -1,13 +1,13 @@
-var css = document.querySelector("h3");
-var labels = document.querySelectorAll("[for]");
-var colors = document.querySelectorAll("[class=color]");
-var newColor = document.querySelector("[class=new-color]");
-var body = document.getElementById("gradient");
-var direction = document.getElementById("d");
-var ci = 2;
-function createColorString()
+const css = document.getElementById("js-background");
+let labels = document.querySelectorAll("[for]");
+let colors = document.querySelectorAll("[class=color]");
+const newColor = document.querySelector("[class=new-color]");
+const body = document.getElementById("gradient");
+const direction = document.getElementById("d");
+let ci = 2;
+const createColorString = () =>
 {
-	 var gradientColors = "";
+	let gradientColors = "";
 	colors.forEach(function(color, i){
 		gradientColors += color.value + (i<colors.length-1?", ":"");
 		labels[i].style.background = color.value;
@@ -15,7 +15,7 @@ function createColorString()
 	return gradientColors;
 }
 
-function setGradient() {
+const setGradient = () => {
 	colors.forEach(function(color){
 		color.addEventListener("input", setGradient);
 	});
@@ -23,12 +23,12 @@ function setGradient() {
 	css.textContent = body.style.background + ";";
 }
 
-function createNewColorInput(event){
+const createNewColorInput = (event) => {
 	ci++;
 	event.target.insertAdjacentHTML('beforebegin', '<label for=color"'+ci+'"><input id="color'+ci+'" type="color" class="color" name="color'+ci+'" value="#ff0034"></label>');
 	labels = document.querySelectorAll("[for]");
 	colors = document.querySelectorAll("[class=color]");
-	setGradient();
+	return setGradient();
 }
 
 newColor.addEventListener("click", createNewColorInput);
