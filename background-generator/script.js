@@ -3,10 +3,7 @@ var labels = document.querySelectorAll("[for]");
 var colors = document.querySelectorAll("[class=color]");
 var newColor = document.querySelector("[class=new-color]");
 var body = document.getElementById("gradient");
-<<<<<<< HEAD
 var direction = document.getElementById("d");
-=======
->>>>>>> 84cee3a6a0475ad5c4028951d887e48a387b4a94
 var ci = 2;
 function createColorString()
 {
@@ -22,11 +19,8 @@ function setGradient() {
 	colors.forEach(function(color){
 		color.addEventListener("input", setGradient);
 	});
-<<<<<<< HEAD
 	body.style.background = "linear-gradient(to " + direction.value + ", " + createColorString() + ")";
-=======
 	body.style.background = "linear-gradient(to right, " + createColorString() + ")";
->>>>>>> 84cee3a6a0475ad5c4028951d887e48a387b4a94
 	css.textContent = body.style.background + ";";
 }
 
@@ -39,9 +33,5 @@ function createNewColorInput(event){
 }
 
 newColor.addEventListener("click", createNewColorInput);
-<<<<<<< HEAD
 direction.addEventListener("input", setGradient);
-=======
-
->>>>>>> 84cee3a6a0475ad5c4028951d887e48a387b4a94
 setGradient();
