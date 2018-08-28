@@ -19,13 +19,14 @@ const setGradient = () => {
 	colors.forEach(function(color){
 		color.addEventListener("input", setGradient);
 	});
-	body.style.background = "linear-gradient(to " + direction.value + ", " + createColorString() + ")";
-	css.textContent = body.style.background + ";";
+	let generatedSyntax = `linear-gradient(to ${direction.value}, ${createColorString()})`;
+	body.style.backgroundImage = generatedSyntax;
+	css.textContent = `${generatedSyntax};`;
 }
 
 const createNewColorInput = (event) => {
 	ci++;
-	event.target.insertAdjacentHTML('beforebegin', '<label for=color"'+ci+'"><input id="color'+ci+'" type="color" class="color" name="color'+ci+'" value="#ff0034"></label>');
+	event.target.insertAdjacentHTML('beforebegin', `<label for="color${ci}"><input id="color${ci}" type="color" class="color" name="color${ci}" value="#ff0034"></label>`);
 	labels = document.querySelectorAll("[for]");
 	colors = document.querySelectorAll("[class=color]");
 	return setGradient();
