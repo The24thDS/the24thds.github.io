@@ -4,13 +4,30 @@ const direction = document.getElementById(`js-direction`);
 
 const createColorString = () => colors.map(color => color.value).join(`, `);
 
-const colorsInit = () =>{
+const randomHex = () => {
+	let color = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+	while(color.length-7<0)
+		color += `0`;
+	return color;
+}
+
+const gradientInit = () =>{
+	const randomButton = document.getElementById(`js-random-button`);
 	const newColor = document.querySelector(`[class=new-color]`);
 	newColor.addEventListener(`click`, createNewColorInput);
+	randomButton.addEventListener(`click`, randomGradient);
+	randomButton.addEventListener(`mouseover`, ()=>{
+		randomButton.textContent = `Randomize!`;
+	});
+	randomButton.addEventListener(`mouseout`, ()=>{
+		randomButton.textContent = `Awesomeness!`;
+	});
+	direction.addEventListener(`input`, setGradient);
 	colors.forEach((color, i) => {
 		color.addEventListener(`input`, setGradient);
-		labels[i].style.background = color.value;
-	})
+		labels[i].style.background = color.value = randomHex();
+	});
+	setGradient(null);
 };
 
 const setGradient = (event) => {
@@ -29,12 +46,13 @@ const createNewColorInput = (event) => {
 	labels.push(document.querySelector(`[for=color${ci}`));
 	colors.push(document.getElementById(`color${ci}`));
 	colors[ci-1].addEventListener(`input`, setGradient);
-	labels[ci-1].style.background = colors[ci-1].value;
+	labels[ci-1].style.background = colors[ci-1].value = randomHex();
 	return setGradient();
 }
 
+const randomGradient = () => {
+	colors.forEach((color, i)=>{labels[i].style.background = color.value = randomHex();});
+	setGradient(null);
+}
 
-direction.addEventListener(`input`, setGradient);
-
-colorsInit();
-setGradient(null);
+gradientInit();
