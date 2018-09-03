@@ -34,9 +34,9 @@ const setGradient = (event) => {
 	if(event && event.target.className===`color`) event.target.parentElement.style.background = event.target.value;
 	const body = document.getElementById(`js-gradient`);
 	const css = document.getElementById(`js-background`);
-	let generatedSyntax = `linear-gradient(to ${direction.value}, ${createColorString()})`;
-	body.style.backgroundImage = generatedSyntax;
-	css.textContent = `${generatedSyntax};`;
+	let generatedSyntax = `linear-gradient(to ${direction.value}, ${createColorString()})${(direction.value==='top'||direction.value==='bottom')? ' no-repeat fixed' : ''}`;
+	body.style.background = generatedSyntax;
+	css.textContent = `background: ${generatedSyntax};`;
 	return generatedSyntax;
 }
 
